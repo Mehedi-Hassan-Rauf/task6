@@ -3,6 +3,7 @@ import express from "express";
 import dotenv from "dotenv";
 import http from 'http';
 import cors from 'cors';
+import path from "path";
 
 import Connection from './database/db.js';
 import { getDocument, updateDocument } from './controller/document-controller.js';
@@ -11,9 +12,16 @@ dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 9000;
+const __dirname = path.resolve();
 
+app.use(express.json()); // to parse the incoming requests with JSON payloads (from req.body)
+app.use(express.static(path.join(__dirname, "/frontend/dist")));
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "frontend", "dist", "index.html"));
+});
 // Enable CORS
-app.use(cors());
+
 
 // Test route
 app.get("/", (req, res) => {
