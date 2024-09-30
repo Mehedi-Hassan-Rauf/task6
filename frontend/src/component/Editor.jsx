@@ -47,7 +47,7 @@ const Editor = () => {
     }, []);
 
     useEffect(() => {
-        const socketServer = io('https://backend-pearl-zeta-16.vercel.app');
+        const socketServer = io('https://task6-eight-mu.vercel.app/');
         setSocket(socketServer);
 
         return () => {
