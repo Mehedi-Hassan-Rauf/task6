@@ -22,5 +22,5 @@
 
 
 .container .ql-editor > p{
-  height: 80%;
+  min-height: 80vh;
 }
