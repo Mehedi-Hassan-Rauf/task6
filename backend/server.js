@@ -1,6 +1,5 @@
 import { Server } from 'socket.io';
 import express from "express";
-import path from "path";
 import dotenv from "dotenv";
 
 import Connection from './database/db.js';
@@ -9,15 +8,8 @@ import { getDocument, updateDocument } from './controller/document-controller.js
 
 const app = express();
 const PORT = process.env.PORT || 9000;
-const __dirname = path.resolve();
 dotenv.config();
-
-
-app.use(express.static(path.join(__dirname, "/frontend/dist")));
-
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "frontend", "dist", "index.html"));
-});
+app.use(cors());
 
 Connection();
 
