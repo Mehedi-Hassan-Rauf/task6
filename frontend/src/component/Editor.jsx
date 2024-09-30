@@ -47,7 +47,7 @@ const Editor = () => {
     }, []);
 
     useEffect(() => {
-        const socketServer = io('https://task6-eight-mu.vercel.app/');
+        const socketServer = io('https://task6-249m.onrender.com');
         setSocket(socketServer);
 
         return () => {
