@@ -36,3 +36,8 @@ io.on('connection', socket => {
         })
     })
 });
+
+app.listen(PORT, () => {
+  console.log("Connecting to server on port ", +PORT);
+});
+
