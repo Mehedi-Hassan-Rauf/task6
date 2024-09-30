@@ -9,7 +9,11 @@ import { getDocument, updateDocument } from './controller/document-controller.js
 const app = express();
 const PORT = process.env.PORT || 9000;
 dotenv.config();
-app.use(cors());
+// app.use(cors());
+
+app.get("/",(req,res)=>{
+    res.json("Hello");
+})
 
 Connection();
 
@@ -35,9 +39,5 @@ io.on('connection', socket => {
             await updateDocument(documentId, data);
         })
     })
-});
-
-app.listen(PORT, () => {
-  console.log("Connecting to server on port ", +PORT);
 });
 
